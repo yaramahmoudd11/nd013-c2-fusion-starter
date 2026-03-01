@@ -1,4 +1,33 @@
+## Submission (Yara Mahmoud - 202300177)
 
+### Notebook
+- `Waymo_visualizations.ipynb`: Visualizes Waymo samples (LiDAR range+intensity + camera with projected labels).
+
+## LiDARs vs Cameras (Preprocessing)
+
+**LiDAR preprocessing**
+- Convert LiDAR range image to 3D point cloud (x, y, z, intensity).
+- Filter points by region-of-interest limits (x/y/z) and remove invalid values.
+- Optionally rasterize to a fixed-size representation like BEV (bird’s-eye view) for detection/tracking.
+
+**Camera preprocessing**
+- Decode RGB image and optionally resize/normalize for learning.
+- Use camera calibration (intrinsics/extrinsics) for projection / fusion.
+- Handle illumination changes, motion blur, and occlusions.
+
+**Key difference:** LiDAR provides direct depth but sparse data; cameras provide dense appearance information but no direct depth.
+
+## EKF vs CNN (Linearization)
+
+**Extended Kalman Filter (EKF)**
+- Used for tracking with nonlinear motion/measurement models.
+- Performs *linearization* around the current estimate using Jacobians (first-order approximation).
+- This enables Kalman update steps in nonlinear systems.
+
+**CNN-based perception**
+- CNNs learn a nonlinear mapping from data (images/BEV) to detections/features.
+- They do not explicitly linearize a physical model; instead they approximate nonlinear functions from data.
+- In this project: CNN/detector outputs measurements, while EKF performs model-based tracking/fusion.
 # SDCND : Sensor Fusion and Tracking
 This is the project for the second course in the  [Udacity Self-Driving Car Engineer Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213) : Sensor Fusion and Tracking. 
 
