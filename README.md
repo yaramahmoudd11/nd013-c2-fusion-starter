@@ -1,7 +1,7 @@
 ## Submission (Yara Mahmoud - 202300177)
 
 ### Notebook
-- `Waymo_visualizations.ipynb`: Visualizes Waymo samples (LiDAR range+intensity + camera with projected labels).
+- `Yaramahmoud_202300177.ipynb`: Visualizes Waymo samples (LiDAR range+intensity + camera with projected labels).
 
 ## LiDARs vs Cameras (Preprocessing)
 
